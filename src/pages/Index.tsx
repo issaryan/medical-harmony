@@ -138,7 +138,7 @@ const Index = () => {
                 description={portal.description}
                 icon={portal.icon}
                 color={portal.color}
-                onClick={() => navigate("/login")}
+                onClick={() => navigate(`/${portal.id === "hospital" ? "dashboard" : portal.id}`)}
               />
             </div>
           ))}
