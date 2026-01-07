@@ -23,39 +23,39 @@ interface SidebarProps {
 const Sidebar = ({ isOpen, onClose, userRole = "hospital" }: SidebarProps) => {
   const getMenuItems = () => {
     const baseItems = [
-      { icon: Home, label: "Tableau de bord", href: "/", active: true },
-      { icon: Calendar, label: "Rendez-vous", href: "/appointments" },
-      { icon: Bell, label: "Notifications", href: "/notifications" },
+      { icon: Home, label: "Tableau de bord", href: "/dashboard", active: false },
+      { icon: Calendar, label: "Calendrier", href: "/calendar", active: false },
+      { icon: Bell, label: "Notifications", href: "/notifications", active: false },
     ];
 
     switch (userRole) {
       case "admin":
         return [
           ...baseItems,
-          { icon: Users, label: "Utilisateurs", href: "/users" },
-          { icon: Building2, label: "Hôpitaux", href: "/hospitals" },
-          { icon: BarChart3, label: "Statistiques", href: "/stats" },
-          { icon: Settings, label: "Paramètres", href: "/settings" },
+          { icon: Users, label: "Utilisateurs", href: "/users", active: false },
+          { icon: Building2, label: "Hôpitaux", href: "/hospitals", active: false },
+          { icon: BarChart3, label: "Statistiques", href: "/stats", active: false },
+          { icon: Settings, label: "Paramètres", href: "/settings", active: false },
         ];
       case "hospital":
         return [
           ...baseItems,
-          { icon: Stethoscope, label: "Médecins", href: "/doctors" },
-          { icon: Users, label: "Patients", href: "/patients" },
-          { icon: BarChart3, label: "Statistiques", href: "/stats" },
-          { icon: Settings, label: "Paramètres", href: "/settings" },
+          { icon: Stethoscope, label: "Médecins", href: "/doctors", active: false },
+          { icon: Users, label: "Patients", href: "/patients", active: false },
+          { icon: BarChart3, label: "Statistiques", href: "/stats", active: false },
+          { icon: Settings, label: "Paramètres", href: "/settings", active: false },
         ];
       case "doctor":
         return [
           ...baseItems,
-          { icon: Users, label: "Mes patients", href: "/patients" },
-          { icon: Settings, label: "Mon profil", href: "/profile" },
+          { icon: Users, label: "Mes patients", href: "/patients", active: false },
+          { icon: Settings, label: "Mon profil", href: "/profile", active: false },
         ];
       case "patient":
         return [
           ...baseItems,
-          { icon: Stethoscope, label: "Mes médecins", href: "/doctors" },
-          { icon: Settings, label: "Mon profil", href: "/profile" },
+          { icon: Stethoscope, label: "Mes médecins", href: "/doctors", active: false },
+          { icon: Settings, label: "Mon profil", href: "/profile", active: false },
         ];
       default:
         return baseItems;
